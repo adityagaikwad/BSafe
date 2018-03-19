@@ -5,13 +5,14 @@
   "version": "1.0",
 
   "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
-  
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
   "icons": {
     "48": "icons/beasts-48.png"
   },
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "http://127.0.0.1/Plugin/main.php"
   ],
 
   "browser_action": {
@@ -23,7 +24,8 @@
   "web_accessible_resources": [
     "beasts/frog.jpg",
     "beasts/turtle.jpg",
-    "beasts/snake.jpg"
+    "beasts/snake.jpg",
+    "main.php"
   ]
 
 }
