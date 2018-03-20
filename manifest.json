@@ -12,7 +12,7 @@
 
   "permissions": [
     "activeTab",
-    "http://127.0.0.1/Plugin/main.php"
+    "http://127.0.0.1/BSafe/BSafe/main.php"
   ],
 
   "browser_action": {

@@ -27,7 +27,7 @@
       // insertBeast(message.beastURL);
       var xhr = new XMLHttpRequest();
       // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.open("POST", "http://127.0.0.1/Plugin/main.php", true);
+      xhr.open("POST", "http://127.0.0.1/BSafe/BSafe/main.php", true);
       xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
           console.log(xhr.responseText);
@@ -39,7 +39,10 @@
     }
     var url2 = document.location.href;
     console.log(url2);
-    xhr.send("url=url2");
+    var data = {"url":url2};
+    data = JSON.stringify(data);
+    console.log(data);
+    xhr.send(data);
   } else if (message.command === "reset") {
     // removeExistingBeasts();
   }

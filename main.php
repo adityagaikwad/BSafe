@@ -1,11 +1,18 @@
 <?php
+$r = file_get_contents('php://input');
+$_POST = json_decode($r, true);
 if (isset($_POST["url"]) && !empty($_POST["url"]))
   { //Checks if action value exists
     $url = $_POST['url'];
 }
 else{
    $url = " http://www.ixxi.com.mx/pp/log-in/customer_center/customer-IDPP00C877/myaccount/signin/ ";
-}   
+    // $url = "https://www.google.co.in";
+} 
+
+// var_dump($_POST);
+// var_dump();
+
 $url = trim($url);
 $debug = false;
 $url = strtolower($url);
