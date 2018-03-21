@@ -13,9 +13,9 @@
  function listenForClicks() {
   document.addEventListener("click", (e) => {
 
-     function beastify(tabs) {
+     function check_website(tabs) {
       browser.tabs.sendMessage(tabs[0].id, {
-        command: "beastify",
+        command: "check_website",
       });
     }
 
@@ -25,11 +25,11 @@
 
     /**
      * Get the active tab,
-     * then call "beastify()" or "reset()" as appropriate.
+     * then call "check_website()" or "reset()" as appropriate.
      */
-     if (e.target.classList.contains("beast")) {
+     if (e.target.classList.contains("btn")) {
       browser.tabs.query({active: true, currentWindow: true})
-      .then(beastify)
+      .then(check_website)
       .catch(reportError);
     }
     // else if (e.target.classList.contains("reset")) {
@@ -55,6 +55,6 @@
  * and add a click handler.
  * If we couldn't inject the script, handle the error.
  */
- browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
+ browser.tabs.executeScript({file: "/content_scripts/check_website.js"})
  .then(listenForClicks)
  .catch(reportExecuteScriptError);

@@ -7,7 +7,6 @@
    if (window.hasRun) {
     return;
   }
-
   // load jquery library
   window.hasRun = true;
   (function(){
@@ -18,34 +17,42 @@
     (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
   })();
 
+  // (function() {
+  //   document.getElementById("check_website").click();
+  // })();
+
   /**
    * Listen for messages from the background script.
    * Call "beastify()" or "reset()".
    */
    browser.runtime.onMessage.addListener((message) => {
-    if (message.command === "beastify") {
+    if (message.command === "check_website") 
+    {
+      // alert("In");
       // insertBeast(message.beastURL);
       var xhr = new XMLHttpRequest();
-      // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.open("POST", "http://127.0.0.1/BSafe/BSafe/main.php", true);
-      xhr.onreadystatechange = function() {
-        if(xhr.readyState == 4 && xhr.status == 200) {
+      xhr.open("POST", "http://127.0.0.1/BSafe/main.php", true);
+      xhr.onreadystatechange = function() 
+      {
+        // result from php returned here
+        if(xhr.readyState == 4 && xhr.status == 200) 
+        {
           console.log(xhr.responseText);
-          // alert("lol");
+          // if result is ok then change "Check if website is malicious to website is safe showing reset option using javascript"
+        }
       }
-      // else {
-      //   console.log("wrong");
-      // }
+      var url2 = document.location.href;
+      // console.log(url2);
+      var data = {"url":url2};
+      data = JSON.stringify(data);
+      // console.log(data);
+      xhr.send(data);
     }
-    var url2 = document.location.href;
-    console.log(url2);
-    var data = {"url":url2};
-    data = JSON.stringify(data);
-    console.log(data);
-    xhr.send(data);
-  } else if (message.command === "reset") {
+    // reset to check again
+    else if (message.command === "reset") 
+    {
     // removeExistingBeasts();
-  }
+    }
 });
 
  })();

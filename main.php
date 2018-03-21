@@ -6,7 +6,7 @@ if (isset($_POST["url"]) && !empty($_POST["url"]))
     $url = $_POST['url'];
 }
 else{
-   $url = " http://www.ixxi.com.mx/pp/log-in/customer_center/customer-IDPP00C877/myaccount/signin/ ";
+   $url = "http://www.ixxi.com.mx/pp/log-in/customer_center/customer-IDPP00C877/myaccount/signin/";
     // $url = "https://www.google.co.in";
 } 
 

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-	<title>BSafe</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="api.js"></script> -->
-	<script type="text/javascript">
-		// document.getElementById("hello").addEventListener("click", popup);
-
-		function popup() 
-		{
-			alert("hiii");
-			$.ajax({
-				url: "main.php",
-				dataType: 'json',
-				type: "POST",
-				data : {url:"http://www.ixxi.com.mx/pp/log-in/customer_center/customer-IDPP00C877/myaccount/signin/"},
-				success :function (result) {
-					console.log(result);
-				},
-				error : function(){
-					console.log("error");
-				},
-			});
-		};
-	</script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body>
-	<button id = "hello" onclick="popup()">Hello World</button>
-</body>
-</html>
 
+<body>
+  <br>
+  <br>
+  <div align="center" style="color: green">
+    Check if the website is malicious
+  </div>
+  <br>
+  <div align="center">
+    <button type="button" id = "check_website" class="btn btn-primary">Check</button>
+  </div>
+  <br>
+  <div align="center" style="color: red">
+    <p>Do you want to report the current website 
+   <br> as potentially malicious?
+    </p>
+  </div>
+  <form>
+    <div align="center" class="form-group">
+      <select class="form-control" id="sel1" style="width: 200px">
+        <option>Choose category</option>
+        <option>Trojan</option>
+        <option>Phishing</option>
+        <option>Spyware</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div align="center" class="form-group">
+      <button type="submit" id = "report_website" class="btn btn-primary">
+        Report
+      </button>
+    </div>
+  </form>
+
+  <div id="error-content" class="hidden">
+    <p>Can't beastify this web page.</p><p>Try a different page.</p>
+  </div>
+
+  <script src="call_check.js"></script>
+</body>
+
+</html>
