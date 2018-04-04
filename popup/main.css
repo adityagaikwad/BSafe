@@ -1,13 +1,17 @@
-html, body {
+/*html, body {
   width: 320px;
   height: 320px;
 }
-
+*/
 div {
   font-size-adjust: 0.6;
 }
 
-.hidden {
+.hidden-safe {
+  display: none;
+}
+
+.hidden-malicious {
   display: none;
 }
 

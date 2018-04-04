@@ -15,10 +15,15 @@
   </div>
   <br>
   <div align="center">
-    <button type="button" id = "check_website" class="btn btn-primary">Check</button>
+    <button type="button" id = "check_website" class="btn-check btn btn-primary">Check</button>
   </div>
   <br>
-  <div align="center" style="color: red">
+  <div align="center">
+    <div id = "safe" class="hidden-safe" style="color: green">The website is safe to use</div> 
+    <div id = "malicious" class="hidden-malicious" style="color: red">The website is malicious</div>
+  </div>
+  <br>
+  <!-- <div align="center" style="color: red">
     <p>Do you want to report the current website 
    <br> as potentially malicious?
     </p>
@@ -34,15 +39,15 @@
       </select>
     </div>
     <div align="center" class="form-group">
-      <button type="submit" id = "report_website" class="btn btn-primary">
+      <button type="submit" id = "report_website" class="btn-report btn btn-primary">
         Report
       </button>
     </div>
-  </form>
+  </form> -->
 
-  <div id="error-content" class="hidden">
+  <!-- <div id="error-content" class="hidden">
     <p>Can't beastify this web page.</p><p>Try a different page.</p>
-  </div>
+  </div> -->
 
   <script src="call_check.js"></script>
 </body>
