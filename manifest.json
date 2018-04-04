@@ -1,10 +1,10 @@
 {
 
   "manifest_version": 2,
-  "name": "Beastify",
+  "name": "BSafe",
   "version": "1.0",
 
-  "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
+  "description": "The extension checks for malicious websites",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
   "icons": {
     "48": "icons/beasts-48.png"
@@ -17,7 +17,7 @@
 
   "browser_action": {
     "default_icon": "icons/beasts-32.png",
-    "default_title": "Beastify",
+    "default_title": "BSafe",
     "default_popup": "popup/index.html"
   },
 

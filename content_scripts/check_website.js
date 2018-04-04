@@ -1,7 +1,4 @@
 (function() {
-  // console.log(document.getElementById("malicious"));
-  // document.QuerySelector("#safe").style.visibility="hidden";
-  // document.getElementById("malicious").style.display="none";
   /**
    * Check and set a global guard variable.
    * If this content script is injected into the same page again,
@@ -10,7 +7,8 @@
    if (window.hasRun) {
     return;
   }
-  // load jquery library
+
+  // Load jquery library
   window.hasRun = true;
   (function(){
     var newscript = document.createElement('script');
@@ -20,13 +18,8 @@
     (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
   })();
 
-  // (function() {
-  //   document.getElementById("check_website").click();
-  // })();
-
   /**
    * Listen for messages from the background script.
-   * Call "beastify()" or "reset()".
    */
    browser.runtime.onMessage.addListener((message) => {
     if (message.command === "check_website") 
@@ -37,16 +30,18 @@
       xhr.open("POST", "http://127.0.0.1/BSafe/main.php", true);
       xhr.onreadystatechange = function() 
       {
-        // result from php returned here
+        // Result from php returned here
         if(xhr.readyState == 4 && xhr.status == 200) 
         {
           flag++;
-          console.log("in");
-          
-          console.log("done");
           console.log(xhr.responseText);
           var obj = JSON.parse(xhr.responseText);
           console.log(obj["result"]);
+
+          /** 
+           * If result is ok then display safe or malicious
+           */
+
           if (obj["result"] == "ok")
           {
             browser.runtime.sendMessage(
@@ -61,7 +56,6 @@
               command: "change_css_malicious",
             });
           }
-          // if result is ok then change "Check if website is malicious to website is safe showing reset option using javascript"
         }
         else
         {
@@ -75,22 +69,23 @@
           }
         }
       }
+
       var url2 = document.location.href;
-      // console.log(url2);
       var data = {"url":url2};
       data = JSON.stringify(data);
-      // console.log(data);
       xhr.send(data);
     }
     if (message.command === "report_website") 
     {
-      alert("outt");
+      // Add AJAX to report website to safebrowsing with url
+      
+      var url2 = document.location.href;
+      
+      // 
+      alert("Reported website. Thankyou!")
+      console.log(message.string);
     }
-    // reset to check again
-    else if (message.command === "reset") 
-    {
-    // removeExistingBeasts();
-  }
+
 });
 
  })();

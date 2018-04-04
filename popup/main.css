@@ -7,7 +7,15 @@ div {
   font-size-adjust: 0.6;
 }
 
+.hidden {
+  display: none;
+}
+
 .hidden-safe {
+  display: none;
+}
+
+.hidden-reported {
   display: none;
 }
 
