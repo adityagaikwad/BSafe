@@ -22,6 +22,11 @@ const hideReport = `body > .btn-report {
     // console.log(document.getElementById("malicious"));
     document.getElementById("malicious").style.display="block";
   }
+  if (request.command === "change_css_phishing") 
+  {
+    // console.log(document.getElementById("malicious"));
+    document.getElementById("phishing").style.display="block";
+  }
   if (request.command === "change_css_safe") 
   {
     // console.log(document.getElementById("safe"));
@@ -50,7 +55,7 @@ function listenForClicks() {
     function report_website(tabs) {
       // console.log("sss");
       var e = document.getElementById("sel1");
-      var strUser = e.options[e.selectedIndex].text;
+      var strUser = e.options[e.selectedIndex].value;
       // console.log(strUser);
       browser.tabs.sendMessage(tabs[0].id, {
         command: "report_website",

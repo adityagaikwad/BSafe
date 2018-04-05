@@ -12,6 +12,8 @@
 
   "permissions": [
     "activeTab",
+    "<all_urls>",
+    "tabs",
     "http://127.0.0.1/BSafe/main.php"
   ],
 

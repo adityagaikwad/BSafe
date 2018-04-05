@@ -42,14 +42,21 @@
            * If result is ok then display safe or malicious
            */
 
-          if (obj["result"] == "ok")
-          {
+           if (obj["result"] == "ok")
+           {
             browser.runtime.sendMessage(
             {
               command: "change_css_safe",
             });
           }
           else if (obj["result"] == "phishing")
+          {
+            browser.runtime.sendMessage(
+            {
+              command: "change_css_phishing",
+            });
+          }
+          else if (obj["result"] == "malicious")
           {
             browser.runtime.sendMessage(
             {
@@ -80,12 +87,17 @@
       // Add AJAX to report website to safebrowsing with url
       
       var url2 = document.location.href;
-      
-      // 
-      alert("Reported website. Thankyou!")
+
+      // alert("Please report website on " + message.string + ". Thankyou! ");
+      alert("Please report website in the tab opened. Thankyou! ");
       console.log(message.string);
+      
+      browser.windows.create({
+        url: message.string,
+      });
+    
     }
 
-});
+  });
 
  })();

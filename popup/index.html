@@ -22,6 +22,7 @@
     <div align="center">
       <div id = "safe" class="hidden-safe" style="color: green">The website is safe to use</div> 
       <div id = "malicious" class="hidden-malicious" style="color: red">The website is malicious</div>
+      <div id = "phishing" class="hidden-phishing" style="color: red">The website is a phishing website</div>
     </div>
     <br>
     <div align="center" style="color: red">
@@ -31,13 +32,15 @@
    </div>
    <form>
     <div align="center" class="form-group">
-      <select class="form-control" id="sel1" style="width: 200px">
-        <option>Choose category</option>
-        <option>Trojan</option>
-        <option>Phishing</option>
-        <option>Spyware</option>
-        <option>Other</option>
-      </select>
+      <div align="center" class="form-group">
+        <select class="form-control" id="sel1" style="width: 200px">
+          <option value="">Choose category</option>
+          <option value="https://www.google.com/safebrowsing/report_phish/?hl=en">Is Phishing</option>
+          <option value="https://www.google.com/safebrowsing/report_phish/?hl=en">Isn't Phishing</option>
+          <option value="http://www.google.com/safebrowsing/report_badware/ ">Is Malware</option>
+          <option value="http://www.stopbadware.org/home/reviewinfo">Isn't Malware</option>
+        </select>
+      </div>
     </div>
     <div align="center" class="form-group">
       <button type="submit" id = "report_website" class="btn-report btn btn-primary">
@@ -47,11 +50,11 @@
   </form>
 
 </div>
-  <div id="error-content" class="hidden">
-    <p>Some error occured.</p><p>Please try again later.</p>
-  </div>
+<div id="error-content" class="hidden">
+  <p>Some error occured.</p><p>Please try again later.</p>
+</div>
 
-  <script src="call_check.js"></script>
+<script src="call_check.js"></script>
 </body>
 
 </html>
