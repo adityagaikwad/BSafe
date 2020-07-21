@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "BSafe",
+  "version": "1.0",
+
+  "description": "The extension checks for malicious websites",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "icons": {
+    "48": "icons/beasts-48.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "tabs",
+    "http://127.0.0.1/BSafe/main.php"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "BSafe",
+    "default_popup": "popup/index.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
+  ]
+
+}

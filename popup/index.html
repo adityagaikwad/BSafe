@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <br>
+  <br>
+  <div id="popup-content">
+    <div align="center" style="color: green">
+      Check if the website is malicious
+    </div>
+    <br>
+    <div align="center">
+      <button type="button" id = "check_website" class="btn-check btn btn-primary">Check</button>
+    </div>
+    <br>
+    <div align="center">
+      <div id = "safe" class="hidden-safe" style="color: green">The website is safe to use</div> 
+      <div id = "malicious" class="hidden-malicious" style="color: red">The website is malicious</div>
+      <div id = "phishing" class="hidden-phishing" style="color: red">The website is a phishing website</div>
+    </div>
+    <br>
+    <div align="center" style="color: red">
+      <p>Do you want to report the current website 
+       <br> as potentially malicious?
+     </p>
+   </div>
+   <form>
+    <div align="center" class="form-group">
+      <div align="center" class="form-group">
+        <select class="form-control" id="sel1" style="width: 200px">
+          <option value="">Choose category</option>
+          <option value="https://www.google.com/safebrowsing/report_phish/?hl=en">Is Phishing</option>
+          <option value="https://www.google.com/safebrowsing/report_phish/?hl=en">Isn't Phishing</option>
+          <option value="http://www.google.com/safebrowsing/report_badware/ ">Is Malware</option>
+          <option value="http://www.stopbadware.org/home/reviewinfo">Isn't Malware</option>
+        </select>
+      </div>
+    </div>
+    <div align="center" class="form-group">
+      <button type="submit" id = "report_website" class="btn-report btn btn-primary">
+        Report
+      </button>
+    </div>
+  </form>
+
+</div>
+<div id="error-content" class="hidden">
+  <p>Some error occured.</p><p>Please try again later.</p>
+</div>
+
+<script src="call_check.js"></script>
+</body>
+
+</html>
